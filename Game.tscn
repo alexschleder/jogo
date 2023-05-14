@@ -41,5 +41,6 @@ visible = false
 [node name="Exploration" parent="." instance=ExtResource( 3 )]
 
 [node name="Camera2D" type="Camera2D" parent="."]
-offset = Vector2( 640, 360 )
+offset = Vector2( 120, 120 )
 current = true
+zoom = Vector2( 0.4, 0.4 )

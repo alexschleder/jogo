@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/elf_f_run_anim_f2.png-a3301eab5d4c0cf6bf496be97fb27832.stex"
+path="res://.import/elf_m_idle_anim_f0.png-e1fa78229bd1dc2af30daee62b8112de.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://grid_movement/Dungeon Grid/tiles/elf_f_run_anim_f2.png"
-dest_files=[ "res://.import/elf_f_run_anim_f2.png-a3301eab5d4c0cf6bf496be97fb27832.stex" ]
+source_file="res://Characters/Player/elf_m_idle_anim_f0.png"
+dest_files=[ "res://.import/elf_m_idle_anim_f0.png-e1fa78229bd1dc2af30daee62b8112de.stex" ]
 
 [params]
 
