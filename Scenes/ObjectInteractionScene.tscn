@@ -31,9 +31,8 @@ uppercase = true
 
 [node name="Button" type="Button" parent="."]
 margin_left = 595.0
-margin_top = 93.0
 margin_right = 788.0
-margin_bottom = 212.0
+margin_bottom = 302.0
 rect_min_size = Vector2( 100, 0 )
 text = "Resolve"
 __meta__ = {

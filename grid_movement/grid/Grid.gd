@@ -36,3 +36,4 @@ func request_move(pawn, direction):
 			if not target_pawn.has_node("ObjectInteractionContainer"):
 				return
 			target_pawn.get_node("ObjectInteractionContainer").visible = true
+			target_pawn.get_node("ColorRect").visible = true

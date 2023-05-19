@@ -1,10 +1,11 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://Game.gd" type="Script" id=1]
-[ext_resource path="res://combat/Combat.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Heart Container.gd" type="Script" id=2]
 [ext_resource path="res://grid_movement/Exploration.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Scenes/DiceButton.tscn" type="PackedScene" id=4]
 [ext_resource path="res://Scripts/Dice Container.gd" type="Script" id=5]
+[ext_resource path="res://Scenes/HeartSprite.tscn" type="PackedScene" id=6]
 [ext_resource path="res://Resources/Sources/Themes/default_theme.tres" type="Theme" id=7]
 
 [sub_resource type="Animation" id=1]
@@ -24,7 +25,6 @@ tracks/0/keys = {
 
 [node name="Game" type="Node"]
 script = ExtResource( 1 )
-combat_screen = NodePath("Combat")
 exploration_screen = NodePath("Exploration")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
@@ -38,9 +38,6 @@ anchor_bottom = 1.0
 mouse_filter = 2
 input_pass_on_modal_close_click = false
 color = Color( 0.0703125, 0.0703125, 0.0703125, 0 )
-
-[node name="Combat" parent="." instance=ExtResource( 2 )]
-visible = false
 
 [node name="Exploration" parent="." instance=ExtResource( 3 )]
 
@@ -71,3 +68,11 @@ size_flags_vertical = 3
 theme = ExtResource( 7 )
 script = ExtResource( 5 )
 DiceButtonScene = ExtResource( 4 )
+
+[node name="Heart Container" type="HBoxContainer" parent="."]
+margin_left = -115.0
+margin_top = -7.0
+margin_right = -30.0
+margin_bottom = 16.0
+script = ExtResource( 2 )
+HeartSpriteScene = ExtResource( 6 )

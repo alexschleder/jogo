@@ -1,8 +1,5 @@
 extends Pawn
 
-
-#warning-ignore:unused_class_variable
-export(PackedScene) var combat_actor
 #warning-ignore:unused_class_variable
 var lost = false
 onready var parent = get_parent()
