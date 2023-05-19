@@ -1,8 +1,11 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://Game.gd" type="Script" id=1]
 [ext_resource path="res://combat/Combat.tscn" type="PackedScene" id=2]
 [ext_resource path="res://grid_movement/Exploration.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Scenes/DiceButton.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Scripts/Dice Container.gd" type="Script" id=5]
+[ext_resource path="res://Resources/Sources/Themes/default_theme.tres" type="Theme" id=7]
 
 [sub_resource type="Animation" id=1]
 length = 0.5
@@ -32,7 +35,8 @@ anims/fade = SubResource( 1 )
 [node name="ColorRect" type="ColorRect" parent="Transition"]
 anchor_right = 1.0
 anchor_bottom = 1.0
-mouse_filter = 1
+mouse_filter = 2
+input_pass_on_modal_close_click = false
 color = Color( 0.0703125, 0.0703125, 0.0703125, 0 )
 
 [node name="Combat" parent="." instance=ExtResource( 2 )]
@@ -44,3 +48,26 @@ visible = false
 offset = Vector2( 120, 120 )
 current = true
 zoom = Vector2( 0.4, 0.4 )
+
+[node name="ColorRect" type="ColorRect" parent="."]
+margin_left = -95.0
+margin_top = 222.0
+margin_right = 322.0
+margin_bottom = 258.0
+mouse_filter = 2
+input_pass_on_modal_close_click = false
+color = Color( 0, 0, 0, 0.247059 )
+
+[node name="Dice Container" type="HBoxContainer" parent="."]
+margin_left = -102.0
+margin_top = 218.0
+margin_right = 302.0
+margin_bottom = 310.0
+rect_scale = Vector2( 0.2, 0.2 )
+rect_clip_content = true
+mouse_filter = 2
+input_pass_on_modal_close_click = false
+size_flags_vertical = 3
+theme = ExtResource( 7 )
+script = ExtResource( 5 )
+DiceButtonScene = ExtResource( 4 )

@@ -1,0 +1,18 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://Scenes/Dice.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Resources/Sources/sprites/Dice/D10/Emerald 0.png" type="Texture" id=2]
+[ext_resource path="res://Scripts/DiceButton.gd" type="Script" id=3]
+
+[node name="DiceButton" type="Button"]
+margin_right = 235.0
+margin_bottom = 229.0
+rect_scale = Vector2( 0.25, 0.25 )
+toggle_mode = true
+action_mode = 0
+icon = ExtResource( 2 )
+flat = true
+script = ExtResource( 3 )
+
+[node name="Dice" parent="." instance=ExtResource( 1 )]
+visible = false

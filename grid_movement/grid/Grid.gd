@@ -33,6 +33,6 @@ func request_move(pawn, direction):
 			print (cell_target)
 			print("Cell %s contains %s" % [cell_target, target_pawn.name])
 
-			if not target_pawn.has_node("DialoguePlayer"):
+			if not target_pawn.has_node("ObjectInteractionContainer"):
 				return
-			get_node(dialogue_ui).show_dialogue(pawn, target_pawn.get_node("DialoguePlayer"))
+			target_pawn.get_node("ObjectInteractionContainer").visible = true

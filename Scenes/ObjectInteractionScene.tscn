@@ -1,0 +1,46 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://Resources/Sources/Themes/default_theme.tres" type="Theme" id=1]
+[ext_resource path="res://Scenes/DiceButton.tscn" type="PackedScene" id=2]
+[ext_resource path="res://theme/theme.tres" type="Theme" id=3]
+
+[node name="ObjectInteractionContainer" type="GridContainer"]
+anchor_right = 0.791
+margin_right = -206.48
+margin_bottom = 302.0
+theme = ExtResource( 3 )
+columns = 3
+
+[node name="DiceButton" parent="." instance=ExtResource( 2 )]
+margin_right = 287.0
+margin_bottom = 302.0
+rect_scale = Vector2( 1, 1 )
+
+[node name="Label" type="Label" parent="."]
+margin_left = 291.0
+margin_top = 88.0
+margin_right = 591.0
+margin_bottom = 214.0
+rect_min_size = Vector2( 300, 100 )
+rect_clip_content = true
+theme = ExtResource( 1 )
+text = "< 3 = -1 HP
+>= 2 = +1HP
+"
+uppercase = true
+
+[node name="Button" type="Button" parent="."]
+margin_left = 595.0
+margin_top = 93.0
+margin_right = 788.0
+margin_bottom = 212.0
+rect_min_size = Vector2( 100, 0 )
+text = "Resolve"
+__meta__ = {
+"_editor_description_": ""
+}
+
+[node name="ColorRect" type="ColorRect" parent="."]
+margin_top = 306.0
+margin_right = 287.0
+margin_bottom = 306.0

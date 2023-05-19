@@ -1,0 +1,60 @@
+[gd_resource type="SpriteFrames" load_steps=31 format=2]
+
+[ext_resource path="res://Resources/Sources/sprites/Dice/D6/sapphire 1.png" type="Texture" id=1]
+[ext_resource path="res://Resources/Sources/sprites/Dice/D6/sapphire 2.png" type="Texture" id=2]
+[ext_resource path="res://Resources/Sources/sprites/Dice/D6/sapphire 6.png" type="Texture" id=3]
+[ext_resource path="res://Resources/Sources/sprites/Dice/D6/sapphire 4.png" type="Texture" id=4]
+[ext_resource path="res://Resources/Sources/sprites/Dice/D6/sapphire 3.png" type="Texture" id=5]
+[ext_resource path="res://Resources/Sources/sprites/Dice/D6/sapphire 5.png" type="Texture" id=6]
+[ext_resource path="res://Resources/Sources/sprites/Dice/D8/sapphire 8.png" type="Texture" id=7]
+[ext_resource path="res://Resources/Sources/sprites/Dice/D8/sapphire 7.png" type="Texture" id=8]
+[ext_resource path="res://Resources/Sources/sprites/Dice/D8/sapphire 6.png" type="Texture" id=9]
+[ext_resource path="res://Resources/Sources/sprites/Dice/D8/sapphire 4.png" type="Texture" id=10]
+[ext_resource path="res://Resources/Sources/sprites/Dice/D8/sapphire 3.png" type="Texture" id=11]
+[ext_resource path="res://Resources/Sources/sprites/Dice/D8/sapphire 1.png" type="Texture" id=12]
+[ext_resource path="res://Resources/Sources/sprites/Dice/D8/sapphire 5.png" type="Texture" id=13]
+[ext_resource path="res://Resources/Sources/sprites/Dice/D8/sapphire 2.png" type="Texture" id=14]
+[ext_resource path="res://Resources/Sources/sprites/Dice/D4/sapphire 4.png" type="Texture" id=15]
+[ext_resource path="res://Resources/Sources/sprites/Dice/D4/sapphire 3.png" type="Texture" id=16]
+[ext_resource path="res://Resources/Sources/sprites/Dice/D4/sapphire 1.png" type="Texture" id=17]
+[ext_resource path="res://Resources/Sources/sprites/Dice/D4/sapphire 2.png" type="Texture" id=18]
+[ext_resource path="res://Resources/Sources/sprites/Dice/D6/Ruby 5.png" type="Texture" id=19]
+[ext_resource path="res://Resources/Sources/sprites/Dice/D6/Ruby 6.png" type="Texture" id=20]
+[ext_resource path="res://Resources/Sources/sprites/Dice/D6/Emerald 1.png" type="Texture" id=21]
+[ext_resource path="res://Resources/Sources/sprites/Dice/D6/Emerald 2.png" type="Texture" id=22]
+[ext_resource path="res://Resources/Sources/sprites/Dice/D6/Emerald 4.png" type="Texture" id=23]
+[ext_resource path="res://Resources/Sources/sprites/Dice/D6/Emerald 6.png" type="Texture" id=24]
+[ext_resource path="res://Resources/Sources/sprites/Dice/D6/Emerald 3.png" type="Texture" id=25]
+[ext_resource path="res://Resources/Sources/sprites/Dice/D6/Emerald 5.png" type="Texture" id=26]
+[ext_resource path="res://Resources/Sources/sprites/Dice/D6/Ruby 3.png" type="Texture" id=27]
+[ext_resource path="res://Resources/Sources/sprites/Dice/D6/Ruby 1.png" type="Texture" id=28]
+[ext_resource path="res://Resources/Sources/sprites/Dice/D6/Ruby 4.png" type="Texture" id=29]
+[ext_resource path="res://Resources/Sources/sprites/Dice/D6/Ruby 2.png" type="Texture" id=30]
+
+[resource]
+animations = [ {
+"frames": [ ExtResource( 17 ), ExtResource( 18 ), ExtResource( 16 ), ExtResource( 15 ) ],
+"loop": true,
+"name": "blue_4",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 1 ), ExtResource( 2 ), ExtResource( 5 ), ExtResource( 4 ), ExtResource( 6 ), ExtResource( 3 ) ],
+"loop": true,
+"name": "blue_6",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 12 ), ExtResource( 14 ), ExtResource( 11 ), ExtResource( 10 ), ExtResource( 13 ), ExtResource( 9 ), ExtResource( 8 ), ExtResource( 7 ) ],
+"loop": true,
+"name": "blue_8",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 21 ), ExtResource( 22 ), ExtResource( 25 ), ExtResource( 23 ), ExtResource( 26 ), ExtResource( 24 ) ],
+"loop": true,
+"name": "green_6",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 28 ), ExtResource( 30 ), ExtResource( 27 ), ExtResource( 29 ), ExtResource( 19 ), ExtResource( 20 ) ],
+"loop": true,
+"name": "red_6",
+"speed": 5.0
+} ]

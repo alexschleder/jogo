@@ -33,6 +33,11 @@ battle system on top of it."
 run/main_scene="res://Game.tscn"
 config/icon="res://icon.png"
 
+[autoload]
+
+GlobalEnums="*res://Scripts/Autoloaded/GlobalEnums.gd"
+PlayerVariables="*res://Scripts/Autoloaded/PlayerVariables.gd"
+
 [display]
 
 window/size/width=1280
