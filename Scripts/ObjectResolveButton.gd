@@ -1,17 +1,18 @@
-extends Node
+extends Button
+
 
 # Declare member variables here. Examples:
-# var a: int = 2
-# var b: String = "text"
+# var a = 2
+# var b = "text"
 
-enum Attributes {INT, DEX, STR}
-enum ResolveType {CHANGE_HP, CHANGE_OBJECT_STATE}
+signal on_open_chest
+var rule_label
 
 # Called when the node enters the scene tree for the first time.
-func _ready() -> void:
+func _ready():
+	rule_label = get_parent().get_node("RuleLabel")
 	pass # Replace with function body.
 
-
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-#func _process(delta: float) -> void:
+#func _process(delta):
 #	pass

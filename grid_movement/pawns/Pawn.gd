@@ -1,13 +1,12 @@
 class_name Pawn
 extends Node2D
 
-
 enum CellType { ACTOR, OBSTACLE, OBJECT }
 #warning-ignore:unused_class_variable
 export(CellType) var type = CellType.ACTOR
 
 var active = true setget set_active
-
+export (PackedScene) var ObjectInteractionScene
 
 func set_active(value):
 	active = value

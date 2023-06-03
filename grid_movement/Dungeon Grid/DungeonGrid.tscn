@@ -1,9 +1,9 @@
 [gd_scene load_steps=6 format=2]
 
+[ext_resource path="res://Scenes/ObjectTemplateScene.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Scenes/ChestInteractionScene.tscn" type="PackedScene" id=2]
 [ext_resource path="res://grid_movement/pawns/Character.tscn" type="PackedScene" id=4]
 [ext_resource path="res://grid_movement/Dungeon Grid/dungeon_tileset.tres" type="TileSet" id=5]
-[ext_resource path="res://grid_movement/pawns/Pawn.gd" type="Script" id=6]
-[ext_resource path="res://Scenes/ObjectInteractionScene.tscn" type="PackedScene" id=7]
 [ext_resource path="res://grid_movement/grid/Grid.gd" type="Script" id=8]
 
 [node name="Grid" type="TileMap"]
@@ -21,25 +21,14 @@ dialogue_ui = NodePath("../DialogueUI")
 position = Vector2( 8, 8 )
 scale = Vector2( 0.2, 0.2 )
 
-[node name="Object" type="Node2D" parent="."]
-position = Vector2( 91, 117 )
-script = ExtResource( 6 )
-type = 2
+[node name="Chest" parent="." instance=ExtResource( 1 )]
+position = Vector2( 20, 20 )
+ObjectInteractionScene = ExtResource( 2 )
 
-[node name="ColorRect" type="ColorRect" parent="Object"]
+[node name="ColorRect" type="ColorRect" parent="."]
 visible = false
-margin_left = -90.0
-margin_top = -51.0
-margin_right = 149.0
-margin_bottom = 61.0
-mouse_filter = 2
-input_pass_on_modal_close_click = false
-color = Color( 0, 0, 0, 0.247059 )
-
-[node name="ObjectInteractionContainer" parent="Object" instance=ExtResource( 7 )]
-visible = false
-margin_left = -77.0
-margin_top = -32.0
-margin_right = 566.0
-margin_bottom = 197.0
-rect_scale = Vector2( 0.25, 0.25 )
+margin_left = 4.0
+margin_top = 18.0
+margin_right = 312.0
+margin_bottom = 151.0
+color = Color( 0, 0, 0, 0.133333 )

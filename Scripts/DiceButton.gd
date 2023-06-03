@@ -27,7 +27,6 @@ func can_drop_data(_pos, data):
 	print('candrop')
 	return typeof(data) == TYPE_INT
 
-
 func drop_data(_pos, data):
 	print('drop data')
 	DiceAnimatedSprite.frame = data

@@ -1,7 +1,7 @@
 [gd_scene load_steps=9 format=2]
 
-[ext_resource path="res://Game.gd" type="Script" id=1]
-[ext_resource path="res://Heart Container.gd" type="Script" id=2]
+[ext_resource path="res://Scripts/Game.gd" type="Script" id=1]
+[ext_resource path="res://Scripts/Heart Container.gd" type="Script" id=2]
 [ext_resource path="res://grid_movement/Exploration.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Scenes/DiceButton.tscn" type="PackedScene" id=4]
 [ext_resource path="res://Scripts/Dice Container.gd" type="Script" id=5]
@@ -11,7 +11,7 @@
 [sub_resource type="Animation" id=1]
 length = 0.5
 tracks/0/type = "value"
-tracks/0/path = NodePath("Transition/ColorRect:color")
+tracks/0/path = NodePath("../Transition/ColorRect:color")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/imported = false
@@ -35,6 +35,10 @@ anims/fade = SubResource( 1 )
 [node name="ColorRect" type="ColorRect" parent="Transition"]
 anchor_right = 1.0
 anchor_bottom = 1.0
+margin_left = -4.0
+margin_top = -8.0
+margin_right = -4.0
+margin_bottom = -8.0
 mouse_filter = 2
 input_pass_on_modal_close_click = false
 color = Color( 0.0703125, 0.0703125, 0.0703125, 0 )
@@ -46,21 +50,32 @@ offset = Vector2( 120, 120 )
 current = true
 zoom = Vector2( 0.4, 0.4 )
 
-[node name="ColorRect" type="ColorRect" parent="."]
-margin_left = -95.0
-margin_top = 222.0
-margin_right = 322.0
-margin_bottom = 258.0
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer"]
+margin_left = 75.0
+margin_top = 612.0
+margin_right = 1194.0
+margin_bottom = 710.0
 mouse_filter = 2
 input_pass_on_modal_close_click = false
 color = Color( 0, 0, 0, 0.247059 )
 
-[node name="Dice Container" type="HBoxContainer" parent="."]
-margin_left = -102.0
-margin_top = 218.0
-margin_right = 302.0
-margin_bottom = 310.0
-rect_scale = Vector2( 0.2, 0.2 )
+[node name="Heart Container" type="HBoxContainer" parent="CanvasLayer"]
+margin_left = 46.0
+margin_top = 23.0
+margin_right = 131.0
+margin_bottom = 46.0
+rect_scale = Vector2( 2, 2 )
+script = ExtResource( 2 )
+HeartSpriteScene = ExtResource( 6 )
+
+[node name="Dice Container" type="HBoxContainer" parent="CanvasLayer"]
+margin_left = 86.0
+margin_top = 604.0
+margin_right = 1134.0
+margin_bottom = 691.0
+rect_scale = Vector2( 0.5, 0.5 )
 rect_clip_content = true
 mouse_filter = 2
 input_pass_on_modal_close_click = false
@@ -69,10 +84,16 @@ theme = ExtResource( 7 )
 script = ExtResource( 5 )
 DiceButtonScene = ExtResource( 4 )
 
-[node name="Heart Container" type="HBoxContainer" parent="."]
-margin_left = -115.0
-margin_top = -7.0
-margin_right = -30.0
-margin_bottom = 16.0
-script = ExtResource( 2 )
-HeartSpriteScene = ExtResource( 6 )
+[node name="ObjectInteractionBackground" type="ColorRect" parent="CanvasLayer"]
+visible = false
+margin_left = 171.0
+margin_top = 207.0
+margin_right = 954.0
+margin_bottom = 382.0
+color = Color( 0, 0, 0, 0.270588 )
+
+[node name="CenterContainer" type="CenterContainer" parent="CanvasLayer"]
+margin_left = -1.0
+margin_top = -23.0
+margin_right = 1290.0
+margin_bottom = 722.0

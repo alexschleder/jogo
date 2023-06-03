@@ -1,17 +1,19 @@
-extends Node
+extends Label
 
 # Declare member variables here. Examples:
-# var a: int = 2
-# var b: String = "text"
+# var a = 2
+# var b = "text"
 
-enum Attributes {INT, DEX, STR}
-enum ResolveType {CHANGE_HP, CHANGE_OBJECT_STATE}
+export(GlobalEnums.ResolveType) var type
+var diceButton
 
 # Called when the node enters the scene tree for the first time.
-func _ready() -> void:
+func _ready():
+	diceButton = get_parent().get_node("DiceButton")
 	pass # Replace with function body.
 
 
+
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-#func _process(delta: float) -> void:
+#func _process(delta):
 #	pass

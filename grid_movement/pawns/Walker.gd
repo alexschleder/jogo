@@ -3,13 +3,15 @@ extends Pawn
 #warning-ignore:unused_class_variable
 var lost = false
 onready var parent = get_parent()
-
+var canMove = true
 
 func _ready():
 	update_look_direction(Vector2.RIGHT)
 
 
 func _process(_delta):
+	if !canMove:
+		return
 	var input_direction = get_input_direction()
 	if not input_direction:
 		return
