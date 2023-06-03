@@ -37,12 +37,4 @@ func request_move(pawn, direction):
 			var target_pawn = get_cell_pawn(cell_target, cell_tile_id)
 			print (cell_target)
 			print("Cell %s contains %s" % [cell_target, target_pawn.name])
-			instantiate_object_interaction_scene(target_pawn.ObjectInteractionScene)
-			canvas_layer.get_node("ObjectInteractionBackground").visible = true
-			
-func instantiate_object_interaction_scene(var packed_scene):
-	var instance = packed_scene.instance()
-	canvas_layer.add_child(instance)
-	instance.rect_scale = Vector2(0.5, 0.5)
-	instance.rect_position = get_viewport_rect().size / 2
-	instance.connect("on_open_chest", root_node,"on_open_chest")
+			canvas_layer.instantiate_object_interaction_scene(target_pawn.ObjectInteractionScene)

@@ -4,8 +4,8 @@
 [ext_resource path="res://Scenes/DiceButton.tscn" type="PackedScene" id=2]
 [ext_resource path="res://theme/theme.tres" type="Theme" id=3]
 [ext_resource path="res://Scripts/ObjectResolveButton.gd" type="Script" id=4]
-[ext_resource path="res://Scenes/ChestRuleLabel.gd" type="Script" id=5]
-[ext_resource path="res://Scenes/ChestInteractionHandler.gd" type="Script" id=6]
+[ext_resource path="res://Scripts/ChestRuleLabel.gd" type="Script" id=5]
+[ext_resource path="res://Scripts/ChestInteractionHandler.gd" type="Script" id=6]
 
 [node name="ObjectInteractionContainer" type="GridContainer"]
 anchor_right = 0.791

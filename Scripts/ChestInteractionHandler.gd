@@ -11,13 +11,7 @@ signal on_open_chest
 func _ready():
 	pass # Replace with function body.
 
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-#func _process(delta):
-#	pass
-
-
 func _on_ObjectResolveButton_pressed():
-	print("test")
+	print("Object Resolve button pressed")
 	emit_signal("on_open_chest", $RuleLabel.validate_resolve())
 	pass # Replace with function body.
