@@ -1,6 +1,6 @@
 extends TileMap
 
-enum CellType { FLOOR, ACTOR, OBJECT, OBSTACLE}
+enum CellType { FLOOR = 0, ACTOR = 1, OBSTACLE = 3, OBJECT = 4}
 export(NodePath) var dialogue_ui
 var object_interaction_background_panel
 var canvas_layer
@@ -13,6 +13,8 @@ func _ready():
 	object_interaction_background_panel = get_node("ColorRect")
 	canvas_layer = get_node("/root/Game/CanvasLayer")
 	root_node = get_node("/root/Game")
+	root_node.connect("before_object_resolve", self, "on_before_object_resolve")
+	
 
 func get_cell_pawn(cell, type = CellType.ACTOR):
 	for node in get_children():
@@ -38,3 +40,7 @@ func request_move(pawn, direction):
 			print (cell_target)
 			print("Cell %s contains %s" % [cell_target, target_pawn.name])
 			canvas_layer.instantiate_object_interaction_scene(target_pawn.ObjectInteractionScene)
+			root_node.current_object = target_pawn
+
+func on_before_object_resolve(object):
+	set_cellv(world_to_map(object.position), CellType.FLOOR)

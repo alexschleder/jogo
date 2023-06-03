@@ -1,7 +1,7 @@
 class_name Pawn
 extends Node2D
 
-enum CellType { ACTOR, OBSTACLE, OBJECT }
+enum CellType { ACTOR = 0, OBSTACLE = 3, OBJECT = 4 }
 #warning-ignore:unused_class_variable
 export(CellType) var type = CellType.ACTOR
 

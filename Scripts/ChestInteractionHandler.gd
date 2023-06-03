@@ -5,13 +5,20 @@ extends GridContainer
 # var a = 2
 # var b = "text"
 
+enum dice_type {CHARACTER_DICE, OTHER}
+var root_node
+
 signal on_open_chest
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	$DiceButton.type = dice_type.OTHER
+	root_node = get_node("/root/Game")
+	root_node.connect("before_object_resolve", $DiceButton, "on_before_object_resolve")
 	pass # Replace with function body.
 
 func _on_ObjectResolveButton_pressed():
 	print("Object Resolve button pressed")
 	emit_signal("on_open_chest", $RuleLabel.validate_resolve())
 	pass # Replace with function body.
+	

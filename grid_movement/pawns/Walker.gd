@@ -4,10 +4,12 @@ extends Pawn
 var lost = false
 onready var parent = get_parent()
 var canMove = true
+var root_node
 
 func _ready():
 	update_look_direction(Vector2.RIGHT)
-
+	root_node = get_node("/root/Game")
+	root_node.connect("object_resolved", self, "on_object_resolve")
 
 func _process(_delta):
 	if !canMove:
@@ -51,3 +53,6 @@ func move_to(target_position):
 
 func bump():
 	$AnimationPlayer.play("bump")
+
+func on_object_resolve():
+	canMove = true

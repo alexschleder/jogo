@@ -7,7 +7,7 @@
 [ext_resource path="res://Scripts/Dice Container.gd" type="Script" id=5]
 [ext_resource path="res://Scenes/HeartSprite.tscn" type="PackedScene" id=6]
 [ext_resource path="res://Resources/Sources/Themes/default_theme.tres" type="Theme" id=7]
-[ext_resource path="res://CanvasLayer.gd" type="Script" id=8]
+[ext_resource path="res://Scripts/CanvasLayer.gd" type="Script" id=8]
 [ext_resource path="res://Resources/Sources/sprites/Icons/close-x.png" type="Texture" id=9]
 
 [sub_resource type="Animation" id=1]
@@ -88,6 +88,7 @@ script = ExtResource( 5 )
 DiceButtonScene = ExtResource( 4 )
 
 [node name="ObjectInteractionBackground" type="ColorRect" parent="CanvasLayer"]
+visible = false
 margin_left = 225.0
 margin_top = 254.0
 margin_right = 1018.0
@@ -110,4 +111,5 @@ margin_bottom = 1437.0
 rect_scale = Vector2( 0.5, 0.5 )
 mouse_filter = 2
 
+[connection signal="pressed" from="CanvasLayer/ObjectInteractionBackground/Button" to="." method="_on_Button_pressed"]
 [connection signal="pressed" from="CanvasLayer/ObjectInteractionBackground/Button" to="CanvasLayer" method="_on_Button_pressed"]

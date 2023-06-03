@@ -5,12 +5,15 @@ extends HBoxContainer
 # var a: int = 2
 # var b: String = "text"
 
+enum dice_type {CHARACTER_DICE, OTHER}
+
 export (PackedScene) var DiceButtonScene
 var lastAvailableSpot : int = 0
 export (int) var diceMargin : int = 0
 
 func instantiate_dice(var diceAttribute : int, var diceSize : int) -> void:
 	var instance = DiceButtonScene.instance()
+	instance.type = dice_type.CHARACTER_DICE
 	add_child(instance)
 	var diceSprite : AnimatedSprite = instance.get_node("Dice")
 	diceSprite.changeDiceSprite(diceAttribute)

@@ -21,6 +21,7 @@ script = ExtResource( 6 )
 margin_right = 287.0
 margin_bottom = 302.0
 rect_scale = Vector2( 1, 1 )
+type = 1
 
 [node name="RuleLabel" type="Label" parent="."]
 margin_left = 291.0
