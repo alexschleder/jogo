@@ -9,6 +9,8 @@ enum dice_type {CHARACTER_DICE, OTHER}
 var root_node
 
 signal on_open_chest
+signal open_door
+export (String) var signal_name #on_open_chest
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -19,6 +21,6 @@ func _ready():
 
 func _on_ObjectResolveButton_pressed():
 	print("Object Resolve button pressed")
-	emit_signal("on_open_chest", $RuleLabel.validate_resolve())
+	emit_signal(signal_name, $RuleLabel.validate_resolve())
 	pass # Replace with function body.
 	

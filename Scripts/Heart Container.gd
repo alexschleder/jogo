@@ -33,6 +33,8 @@ func destroy_heart():
 	
 func change_heart(quantity):
 	print("Change heart by", quantity)
+	if (quantity == 0):
+		return
 	if (quantity > 0):
 		for n in quantity:
 			instantiate_heart()

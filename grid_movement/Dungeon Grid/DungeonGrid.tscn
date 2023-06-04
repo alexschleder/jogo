@@ -1,7 +1,8 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://Scenes/ObjectTemplateScene.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Scenes/ChestInteractionScene.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Scenes/ObjectDoorScene.tscn" type="PackedScene" id=3]
 [ext_resource path="res://grid_movement/pawns/Character.tscn" type="PackedScene" id=4]
 [ext_resource path="res://grid_movement/Dungeon Grid/dungeon_tileset.tres" type="TileSet" id=5]
 [ext_resource path="res://grid_movement/grid/Grid.gd" type="Script" id=8]
@@ -22,9 +23,12 @@ position = Vector2( 8, 8 )
 scale = Vector2( 0.2, 0.2 )
 
 [node name="Chest" parent="." instance=ExtResource( 1 )]
-position = Vector2( 24, 24 )
+position = Vector2( 120, 120 )
 type = 4
 ObjectInteractionScene = ExtResource( 2 )
+
+[node name="Door" parent="." instance=ExtResource( 3 )]
+position = Vector2( 24, 54 )
 
 [node name="ColorRect" type="ColorRect" parent="."]
 visible = false

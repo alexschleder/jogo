@@ -24,8 +24,26 @@ func _ready():
 	heart_container = $"CanvasLayer/Heart Container"
 	heart_container.connect("game_over_zero_hearts", self, "on_game_over_zero_hearts")
 
+func try_connect_signal(instance, signal_name):
+	if (signal_name == "on_open_chest"):
+		instance.connect("on_open_chest", self,"on_open_chest")
+	elif (signal_name == "open_door"):
+		instance.connect("open_door", self, "on_open_door" )
+	else:
+		print("could not connect signal", signal_name, instance.get_name())
+
 func on_open_chest(life_value):
 	print("On open chest")
+	heart_container.change_heart(life_value)
+	on_object_resolve()
+	
+func on_open_door(life_value):
+	print("On open door")
+	heart_container.change_heart(life_value)
+	on_object_resolve()
+	
+func on_fountain_use(life_value):
+	print("On fountain use")
 	heart_container.change_heart(life_value)
 	on_object_resolve()
 	

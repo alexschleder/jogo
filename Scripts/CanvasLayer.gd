@@ -18,7 +18,7 @@ func instantiate_object_interaction_scene(var packed_scene):
 	instance.rect_scale = Vector2(0.25, 0.25)
 	$CenterContainer.add_child(instance)
 	$ObjectInteractionBackground.visible = true
-	instance.connect("on_open_chest", root_node,"on_open_chest")
+	root_node.try_connect_signal(instance, instance.signal_name)
 	root_node.connect("object_resolved", self, "close_object_interaction_scene")
 	object_interaction_scene = instance
 	pass
