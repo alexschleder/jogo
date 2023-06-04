@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://Scripts/Game.gd" type="Script" id=1]
 [ext_resource path="res://Scripts/Heart Container.gd" type="Script" id=2]
@@ -9,6 +9,7 @@
 [ext_resource path="res://Resources/Sources/Themes/default_theme.tres" type="Theme" id=7]
 [ext_resource path="res://Scripts/CanvasLayer.gd" type="Script" id=8]
 [ext_resource path="res://Resources/Sources/sprites/Icons/close-x.png" type="Texture" id=9]
+[ext_resource path="res://Scenes/GameOver.tscn" type="PackedScene" id=10]
 
 [sub_resource type="Animation" id=1]
 length = 0.5
@@ -89,10 +90,10 @@ DiceButtonScene = ExtResource( 4 )
 
 [node name="ObjectInteractionBackground" type="ColorRect" parent="CanvasLayer"]
 visible = false
-margin_left = 225.0
-margin_top = 254.0
-margin_right = 1018.0
-margin_bottom = 443.0
+margin_left = 222.0
+margin_top = 235.0
+margin_right = 1015.0
+margin_bottom = 424.0
 color = Color( 0, 0, 0, 0.270588 )
 
 [node name="Button" type="Button" parent="CanvasLayer/ObjectInteractionBackground"]
@@ -104,12 +105,28 @@ rect_scale = Vector2( 0.02, 0.02 )
 icon = ExtResource( 9 )
 
 [node name="CenterContainer" type="CenterContainer" parent="CanvasLayer"]
-margin_left = -3.0
-margin_top = -11.0
-margin_right = 2553.0
-margin_bottom = 1437.0
+margin_left = -26.0
+margin_top = -32.0
+margin_right = 2530.0
+margin_bottom = 1416.0
 rect_scale = Vector2( 0.5, 0.5 )
 mouse_filter = 2
+
+[node name="GameOverBackground" type="ColorRect" parent="CanvasLayer"]
+visible = false
+margin_left = 256.0
+margin_top = 195.0
+margin_right = 834.0
+margin_bottom = 410.0
+color = Color( 0.0901961, 0.0392157, 0.0392157, 1 )
+
+[node name="GameOver" parent="CanvasLayer" instance=ExtResource( 10 )]
+visible = false
+margin_left = 333.0
+margin_top = 266.0
+margin_right = 833.0
+margin_bottom = 766.0
+rect_scale = Vector2( 2, 2 )
 
 [connection signal="pressed" from="CanvasLayer/ObjectInteractionBackground/Button" to="." method="_on_Button_pressed"]
 [connection signal="pressed" from="CanvasLayer/ObjectInteractionBackground/Button" to="CanvasLayer" method="_on_Button_pressed"]

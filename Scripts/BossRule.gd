@@ -14,10 +14,11 @@ func _ready():
 	
 func validate_resolve() -> int:
 	var dice_value = dice_button.GetDiceValue()
-	if (dice_value < 4):
-		return 1
+	print ("VALOR:", dice_value)
+	if (dice_value >= 6):
+		return 0
 	else:
-		return 2
+		return -4
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 #func _process(delta):

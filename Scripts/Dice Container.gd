@@ -8,8 +8,6 @@ extends HBoxContainer
 enum dice_type {CHARACTER_DICE, OTHER}
 
 export (PackedScene) var DiceButtonScene
-var lastAvailableSpot : int = 0
-export (int) var diceMargin : int = 0
 
 func instantiate_dice(var diceAttribute : int, var diceSize : int) -> void:
 	var instance = DiceButtonScene.instance()
@@ -30,6 +28,11 @@ func _ready() -> void:
 	for i in range (PlayerVariables.max_str_dice):
 		instantiate_dice(GlobalEnums.Attributes.STR, i)
 	
+func reroll():
+	for n in get_children():
+		n.reroll()
+	return
+		
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 #func _process(delta: float) -> void:
 #	pass

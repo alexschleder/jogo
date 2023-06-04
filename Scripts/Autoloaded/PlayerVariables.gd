@@ -5,9 +5,9 @@ extends Node
 # var a: int = 2
 # var b: String = "text"
 
-var max_int_dice : int = 3
-var max_str_dice : int = 3
-var max_dex_dice : int = 3
+var max_int_dice : int = 2
+var max_str_dice : int = 2
+var max_dex_dice : int = 2
 
 var int_dice_size : int = 8
 var str_dice_size : int = 8

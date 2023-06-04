@@ -19,7 +19,7 @@ func ChangeIcon() -> void:
 	icon = DiceAnimatedSprite.GetCurrentFrame()
 
 func GetDiceValue() -> int:
-	return DiceAnimatedSprite.frame
+	return DiceAnimatedSprite.frame + 1
 
 func get_drag_data(_pos):
 	print('getdrag')
@@ -46,3 +46,6 @@ func on_before_object_resolve(object):
 	from_dice.queue_free()
 	from_dice = null
 	
+func reroll():
+	DiceAnimatedSprite.roll()
+	ChangeIcon()
