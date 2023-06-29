@@ -1,13 +1,27 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://Scenes/InteractionScenes/DoorInteractionScene.tscn" type="PackedScene" id=1]
 [ext_resource path="res://grid_movement/pawns/Pawn.gd" type="Script" id=2]
 [ext_resource path="res://grid_movement/Dungeon Grid/tiles/doors_leaf_closed.png" type="Texture" id=3]
+[ext_resource path="res://grid_movement/Dungeon Grid/tiles/doors_leaf_open.png" type="Texture" id=4]
+[ext_resource path="res://Scripts/ToggleSprite.gd" type="Script" id=5]
+
+[sub_resource type="SpriteFrames" id=1]
+animations = [ {
+"frames": [ ExtResource( 3 ), ExtResource( 4 ) ],
+"loop": true,
+"name": "default",
+"speed": 5.0
+} ]
 
 [node name="Node2D" type="Node2D"]
 script = ExtResource( 2 )
 type = 4
 ObjectInteractionScene = ExtResource( 1 )
+is_toggle = true
 
-[node name="Sprite" type="Sprite" parent="."]
-texture = ExtResource( 3 )
+[node name="AnimatedSprite" type="AnimatedSprite" parent="."]
+frames = SubResource( 1 )
+script = ExtResource( 5 )
+
+[connection signal="toggle_object" from="." to="AnimatedSprite" method="on_toggle_object"]

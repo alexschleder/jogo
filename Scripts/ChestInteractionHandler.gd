@@ -14,6 +14,8 @@ signal fountain_use
 signal reroll_potion_use
 signal defeat_enemy
 signal ladder_use
+signal spikes_use
+signal lever_use
 export (String) var signal_name #on_open_chest
 
 # Called when the node enters the scene tree for the first time.

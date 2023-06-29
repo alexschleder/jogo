@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=18 format=2]
 
 [ext_resource path="res://Scripts/Game.gd" type="Script" id=1]
 [ext_resource path="res://Scripts/Heart Container.gd" type="Script" id=2]
@@ -10,6 +10,12 @@
 [ext_resource path="res://Scripts/CanvasLayer.gd" type="Script" id=8]
 [ext_resource path="res://Resources/Sources/sprites/Icons/close-x.png" type="Texture" id=9]
 [ext_resource path="res://Scenes/GameOver.tscn" type="PackedScene" id=10]
+[ext_resource path="res://Scripts/Bomb Container.gd" type="Script" id=11]
+[ext_resource path="res://Scenes/BombSprite.tscn" type="PackedScene" id=12]
+[ext_resource path="res://Scripts/AudioManager.gd" type="Script" id=13]
+[ext_resource path="res://Audio/SFX/Retro PowerUP 23.wav" type="AudioStream" id=14]
+[ext_resource path="res://Audio/SFX/Retro PickUp 10.wav" type="AudioStream" id=15]
+[ext_resource path="res://Audio/SFX/Retro PickUp 18.wav" type="AudioStream" id=16]
 
 [sub_resource type="Animation" id=1]
 length = 0.5
@@ -74,6 +80,15 @@ rect_scale = Vector2( 2, 2 )
 script = ExtResource( 2 )
 HeartSpriteScene = ExtResource( 6 )
 
+[node name="Bomb Container" type="HBoxContainer" parent="CanvasLayer"]
+margin_left = 46.0
+margin_top = 69.0
+margin_right = 131.0
+margin_bottom = 92.0
+rect_scale = Vector2( 2, 2 )
+script = ExtResource( 11 )
+BombSpriteScene = ExtResource( 12 )
+
 [node name="Dice Container" type="HBoxContainer" parent="CanvasLayer"]
 margin_left = 86.0
 margin_top = 604.0
@@ -127,6 +142,18 @@ margin_top = 266.0
 margin_right = 833.0
 margin_bottom = 766.0
 rect_scale = Vector2( 2, 2 )
+
+[node name="AudioManager" type="Node" parent="."]
+script = ExtResource( 13 )
+
+[node name="Pickup" type="AudioStreamPlayer" parent="AudioManager"]
+stream = ExtResource( 15 )
+
+[node name="Resolve" type="AudioStreamPlayer" parent="AudioManager"]
+stream = ExtResource( 16 )
+
+[node name="Defeat" type="AudioStreamPlayer" parent="AudioManager"]
+stream = ExtResource( 14 )
 
 [connection signal="pressed" from="CanvasLayer/ObjectInteractionBackground/Button" to="." method="_on_Button_pressed"]
 [connection signal="pressed" from="CanvasLayer/ObjectInteractionBackground/Button" to="CanvasLayer" method="_on_Button_pressed"]

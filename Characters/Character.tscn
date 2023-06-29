@@ -1,7 +1,9 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://grid_movement/pawns/Walker.gd" type="Script" id=1]
-[ext_resource path="res://grid_movement/pawns/character.png" type="Texture" id=2]
+[ext_resource path="res://Characters/Player/elf_f_hit_anim_f0.png" type="Texture" id=2]
+[ext_resource path="res://Audio/SFX/walk 3 slow.wav" type="AudioStream" id=3]
+[ext_resource path="res://Audio/SFX/walk 1 fast.wav" type="AudioStream" id=4]
 
 [sub_resource type="Animation" id=1]
 resource_name = "bump"
@@ -14,7 +16,7 @@ tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0, 0.02, 0.04, 0.06, 0.08, 0.1 ),
+"times": PoolRealArray( 0, 0.02, 0.04, 0.06, 0.08, 0.09 ),
 "transitions": PoolRealArray( 1, 1, 1, 1, 1, 1 ),
 "update": 0,
 "values": [ Vector2( 0, 0 ), Vector2( -1.5, -9 ), Vector2( 6.5, 2.5 ), Vector2( -11.5, 8.5 ), Vector2( 4, -5 ), Vector2( 0, 0 ) ]
@@ -43,10 +45,10 @@ tracks/1/loop_wrap = true
 tracks/1/imported = false
 tracks/1/enabled = true
 tracks/1/keys = {
-"times": PoolRealArray( 0, 0.1, 0.15, 0.25 ),
-"transitions": PoolRealArray( 1, 0.303143, 2.61003, 1 ),
+"times": PoolRealArray( 0, 0.15, 0.25 ),
+"transitions": PoolRealArray( 1, 2.61003, 1 ),
 "update": 0,
-"values": [ Vector2( 1.43051e-06, -1.90735e-06 ), Vector2( 1.43051e-06, -1.90735e-06 ), Vector2( 0, -20 ), Vector2( 1.43051e-06, -1.90735e-06 ) ]
+"values": [ Vector2( 1.43051e-06, -1.90735e-06 ), Vector2( 0, -20 ), Vector2( 1.43051e-06, -1.90735e-06 ) ]
 }
 tracks/2/type = "value"
 tracks/2/path = NodePath("Pivot/Sprite:scale")
@@ -55,19 +57,16 @@ tracks/2/loop_wrap = true
 tracks/2/imported = false
 tracks/2/enabled = true
 tracks/2/keys = {
-"times": PoolRealArray( 0, 0.05, 0.15, 0.25 ),
+"times": PoolRealArray( 0, 0.02, 0.15, 0.25 ),
 "transitions": PoolRealArray( 1, 0.354553, 1, 1 ),
 "update": 0,
-"values": [ Vector2( 1, 1 ), Vector2( 1.20007, 0.917384 ), Vector2( 0.916712, 1.13495 ), Vector2( 1, 1 ) ]
+"values": [ Vector2( 1, 1 ), Vector2( 1.1, 0.917 ), Vector2( 0.916712, 1.13495 ), Vector2( 1, 1 ) ]
 }
 
 [node name="Character" type="Node2D"]
 position = Vector2( 32, 32 )
 z_index = 1
 script = ExtResource( 1 )
-__meta__ = {
-"_edit_group_": true
-}
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 anims/bump = SubResource( 1 )
@@ -78,6 +77,13 @@ anims/walk = SubResource( 2 )
 [node name="Pivot" type="Position2D" parent="."]
 
 [node name="Sprite" type="Sprite" parent="Pivot"]
+position = Vector2( 1.43051e-06, -1.90735e-06 )
 texture = ExtResource( 2 )
 centered = false
-offset = Vector2( -32, -32 )
+offset = Vector2( -8, -16 )
+
+[node name="MoveAudio" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 4 )
+
+[node name="BumpAudio" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 3 )
