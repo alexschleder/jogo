@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/Barren Land.mp3-08ba3ef2f6287f1826825a6dd1be2e90.mp3str"
+
+[deps]
+
+source_file="res://Audio/Music/Barren Land.mp3"
+dest_files=[ "res://.import/Barren Land.mp3-08ba3ef2f6287f1826825a6dd1be2e90.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

@@ -1,7 +1,7 @@
 class_name Pawn
 extends Node2D
 
-enum CellType { ACTOR = 0, OBSTACLE = 3, OBJECT = 4 }
+enum CellType { ACTOR = 5, OBSTACLE = 3, OBJECT = 4 }
 #warning-ignore:unused_class_variable
 export(CellType) var type = CellType.ACTOR
 
@@ -25,3 +25,9 @@ func on_before_object_resolve():
 func on_linked_object_resolve():
 	if(is_toggle):
 		emit_signal("toggle_object", self)
+
+
+func _on_Grid_map_change():
+	if(is_toggle):
+		emit_signal("toggle_object", self)
+	pass # Replace with function body.

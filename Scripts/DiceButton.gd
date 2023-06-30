@@ -35,7 +35,7 @@ func drop_data(_pos, data):
 	if(type == dice_type.CHARACTER_DICE):
 		return
 	print('drop data')
-	DiceAnimatedSprite.frame = data.GetDiceValue()
+	DiceAnimatedSprite.frame = data.GetDiceValue() -1
 	from_dice = data
 	ChangeIcon()
 

@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=2]
+[gd_scene load_steps=20 format=2]
 
 [ext_resource path="res://Scripts/Game.gd" type="Script" id=1]
 [ext_resource path="res://Scripts/Heart Container.gd" type="Script" id=2]
@@ -16,6 +16,8 @@
 [ext_resource path="res://Audio/SFX/Retro PowerUP 23.wav" type="AudioStream" id=14]
 [ext_resource path="res://Audio/SFX/Retro PickUp 10.wav" type="AudioStream" id=15]
 [ext_resource path="res://Audio/SFX/Retro PickUp 18.wav" type="AudioStream" id=16]
+[ext_resource path="res://Scripts/MusicManager.gd" type="Script" id=17]
+[ext_resource path="res://Audio/Music/Barren Land.mp3" type="AudioStream" id=18]
 
 [sub_resource type="Animation" id=1]
 length = 0.5
@@ -154,6 +156,18 @@ stream = ExtResource( 16 )
 
 [node name="Defeat" type="AudioStreamPlayer" parent="AudioManager"]
 stream = ExtResource( 14 )
+volume_db = -3.391
 
+[node name="MusicManager" type="Node" parent="."]
+script = ExtResource( 17 )
+
+[node name="DefaultMusic" type="AudioStreamPlayer" parent="MusicManager"]
+stream = ExtResource( 18 )
+volume_db = -11.869
+
+[node name="BossMusic" type="AudioStreamPlayer" parent="MusicManager"]
+
+[connection signal="change_map" from="." to="CanvasLayer/Dice Container" method="on_change_map"]
+[connection signal="change_map" from="." to="MusicManager" method="_on_Game_change_map"]
 [connection signal="pressed" from="CanvasLayer/ObjectInteractionBackground/Button" to="." method="_on_Button_pressed"]
 [connection signal="pressed" from="CanvasLayer/ObjectInteractionBackground/Button" to="CanvasLayer" method="_on_Button_pressed"]

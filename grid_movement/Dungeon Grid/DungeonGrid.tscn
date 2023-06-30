@@ -32,7 +32,6 @@ needs_monster = false
 
 [node name="Player" parent="." instance=ExtResource( 4 )]
 position = Vector2( 8, 8 )
-type = 4
 
 [node name="Chest" parent="." instance=ExtResource( 1 )]
 position = Vector2( 120, 120 )
@@ -40,7 +39,6 @@ ObjectInteractionScene = ExtResource( 2 )
 
 [node name="Door" parent="." instance=ExtResource( 3 )]
 position = Vector2( 24, 54 )
-is_toggle = true
 
 [node name="RerollPotion" parent="." instance=ExtResource( 7 )]
 position = Vector2( 40, 184 )
@@ -49,7 +47,7 @@ position = Vector2( 40, 184 )
 position = Vector2( 248, 8 )
 
 [node name="Boss" parent="." instance=ExtResource( 9 )]
-position = Vector2( 216, 16 )
+position = Vector2( 216, 40 )
 
 [node name="Fountain" parent="." instance=ExtResource( 11 )]
 position = Vector2( 8, 88 )
@@ -60,15 +58,30 @@ position = Vector2( 152, 56 )
 [node name="Lever" parent="." instance=ExtResource( 15 )]
 position = Vector2( 56, 8 )
 
-[node name="ColorRect" type="ColorRect" parent="."]
-visible = false
-margin_left = 4.0
-margin_top = 18.0
-margin_right = 312.0
-margin_bottom = 151.0
-color = Color( 0, 0, 0, 0.133333 )
+[node name="Lever2" parent="." instance=ExtResource( 15 )]
+modulate = Color( 0.537255, 1, 0.458824, 1 )
+position = Vector2( 650, 120 )
+
+[node name="Lever3" parent="." instance=ExtResource( 15 )]
+modulate = Color( 0.458824, 0.454902, 1, 1 )
+position = Vector2( 536, 168 )
+
+[node name="Door2" parent="." instance=ExtResource( 3 )]
+modulate = Color( 0.537255, 1, 0.458824, 1 )
+position = Vector2( 648, 62 )
+
+[node name="Door3" parent="." instance=ExtResource( 3 )]
+modulate = Color( 0.458824, 0.454902, 1, 1 )
+position = Vector2( 728, 128 )
+type = 3
+
+[node name="Ladder2" parent="." instance=ExtResource( 10 )]
+position = Vector2( 728, 184 )
 
 [node name="BombAudio" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 12 )
 
+[connection signal="map_change" from="." to="Door2" method="_on_Grid_map_change"]
 [connection signal="linked_object_resolve" from="Lever" to="Door" method="on_linked_object_resolve"]
+[connection signal="linked_object_resolve" from="Lever2" to="Door2" method="on_linked_object_resolve"]
+[connection signal="linked_object_resolve" from="Lever3" to="Door3" method="on_linked_object_resolve"]

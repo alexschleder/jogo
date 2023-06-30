@@ -1,6 +1,6 @@
 extends TileMap
 
-enum CellType { FLOOR = 0, ACTOR = 1, OBSTACLE = 3, OBJECT = 4}
+enum CellType { FLOOR = 0, ACTOR = 5, OBSTACLE = 3, OBJECT = 4}
 export(NodePath) var dialogue_ui
 export (PackedScene) var BombItemScene
 export (PackedScene) var MonsterScene
@@ -10,6 +10,7 @@ var root_node
 var bomb_audio
 var directions = []
 export (bool) var needs_monster = true
+signal map_change
 
 func _ready():
 	for child in get_children():
@@ -86,7 +87,7 @@ func request_move(pawn, direction):
 	var cell_tile_id = get_cellv(cell_target)
 	match cell_tile_id:
 		-1, CellType.FLOOR:
-			set_cellv(cell_target, CellType.OBJECT)
+			set_cellv(cell_target, CellType.ACTOR)
 			set_cellv(cell_start, CellType.FLOOR)
 			directions.append(direction)
 			if (is_monster_dead()) and needs_monster:
@@ -114,13 +115,17 @@ func request_monster_move(pawn):
 			set_cellv(cell_start, CellType.FLOOR)
 			directions.remove(0)
 			return map_to_world(cell_target) + cell_size / 2
-		CellType.OBJECT, CellType.ACTOR:
+		CellType.ACTOR:
 			stop_movement()
 			var target_pawn = get_cell_pawn(cell_target, cell_tile_id)
 			print (cell_target)
 			print("Cell %s contains %s" % [cell_target, target_pawn.name])
 			canvas_layer.instantiate_object_interaction_scene(pawn.ObjectInteractionScene)
 			root_node.current_object = pawn
+
+func on_map_change():
+	directions = []
+	emit_signal("map_change")
 
 func on_before_object_resolve(object):
 	object.on_before_object_resolve()

@@ -10,6 +10,7 @@ var root_node
 func _ready():
 	root_node = get_node("/root/Game")
 	root_node.connect("object_resolved", self, "on_object_resolve")
+	$SpawnAudio.playing = true
 
 func move_to(target_position):
 	set_process(false)
@@ -25,7 +26,7 @@ func move_to(target_position):
 
 
 func bump():
-	$BumpAudio.play()
+	#$BumpAudio.play()
 	$AnimationPlayer.play("bump")
 
 func on_object_resolve():
@@ -40,3 +41,9 @@ func _on_MoveCooldown_timeout():
 		$Tween.start()
 	else:
 		bump()
+
+
+func _on_InitialMoveCooldown_timeout():
+	$MoveCooldown.autostart = true
+	$MoveCooldown.start()
+	pass # Replace with function body.

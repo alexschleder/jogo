@@ -9,8 +9,13 @@ var heart_container
 var dice_container
 var bomb_container
 var current_object = null
+var player
+var map_2_spawn_point = Vector2(552, 88)
+var grid
+var current_map = 1
 signal object_resolved
 signal before_object_resolve
+signal change_map
 
 func _ready():
 	exploration_screen = get_node(exploration_screen)
@@ -27,6 +32,8 @@ func _ready():
 	heart_container.connect("game_over_zero_hearts", self, "on_game_over_zero_hearts")
 	dice_container = $"CanvasLayer/Dice Container"
 	bomb_container = $"CanvasLayer/Bomb Container"
+	player = $"Exploration/Grid/Player"
+	grid = $"Exploration/Grid"
 
 func try_connect_signal(instance, signal_name):
 	if (signal_name == "on_open_chest"):
@@ -81,7 +88,12 @@ func on_defeat_enemy(hp_lost):
 	
 func on_ladder_use(life_value):
 	print("On ladder use")
-	game_over()
+	if (current_map == 1):
+		on_object_resolve()
+		go_to_map2()
+	else:
+		on_object_resolve()
+		game_over()
 	
 func on_spikes_use(hp_lost):
 	print("On spikes use")
@@ -111,6 +123,14 @@ func on_object_resolve():
 func _on_Button_pressed():
 	emit_signal("object_resolved")
 	pass # Replace with function body.
+
+func go_to_map2():
+	player.position = map_2_spawn_point
+	grid.needs_monster = true
+	grid.on_map_change()
+	$Camera2D.offset.x = 648
+	current_map = 2
+	emit_signal("change_map")
 
 func game_over():
 	$CanvasLayer/GameOver.visible = true

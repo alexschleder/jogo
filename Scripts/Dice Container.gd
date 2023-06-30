@@ -21,6 +21,9 @@ func instantiate_dice(var diceAttribute : int, var diceSize : int) -> void:
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	initialize_dice()
+	
+func initialize_dice():
 	for i in range (PlayerVariables.max_int_dice):
 		instantiate_dice(GlobalEnums.Attributes.INT, i)
 	for i in range (PlayerVariables.max_dex_dice):
@@ -28,11 +31,21 @@ func _ready() -> void:
 	for i in range (PlayerVariables.max_str_dice):
 		instantiate_dice(GlobalEnums.Attributes.STR, i)
 	
+func kill_dice():
+	for dice in self.get_children():
+		dice.queue_free()
+
 func reroll():
 	for n in get_children():
 		n.reroll()
 	return
+	
+func on_change_map():
+	kill_dice()
+	initialize_dice()
 		
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 #func _process(delta: float) -> void:
 #	pass
+
+

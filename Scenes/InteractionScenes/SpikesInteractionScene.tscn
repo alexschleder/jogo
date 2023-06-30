@@ -32,8 +32,8 @@ margin_bottom = 214.0
 rect_min_size = Vector2( 300, 100 )
 rect_clip_content = true
 theme = ExtResource( 1 )
-text = "< 4 =  -1hp + pass
->= 4 = PASS
+text = "< 5 =  -1hp + pass
+>= 5 = PASS
 "
 uppercase = true
 script = ExtResource( 5 )

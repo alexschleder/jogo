@@ -14,7 +14,7 @@ func _ready():
 	
 func validate_resolve() -> int:
 	var dice_value = dice_button.GetDiceValue()
-	if (dice_value < 4):
+	if (dice_value < 5):
 		return -1
 	else:
 		return 0

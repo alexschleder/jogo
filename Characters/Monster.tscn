@@ -1,8 +1,9 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://Scripts/Monster.gd" type="Script" id=1]
 [ext_resource path="res://grid_movement/Dungeon Grid/tiles/big_demon_run_anim_f1.png" type="Texture" id=2]
 [ext_resource path="res://Audio/SFX/walk 3 slow.wav" type="AudioStream" id=3]
+[ext_resource path="res://Audio/SFX/Retro Roar Krushed 01.wav" type="AudioStream" id=4]
 [ext_resource path="res://grid_movement/Dungeon Grid/tiles/big_demon_run_anim_f2.png" type="Texture" id=5]
 [ext_resource path="res://grid_movement/Dungeon Grid/tiles/big_demon_run_anim_f3.png" type="Texture" id=6]
 [ext_resource path="res://grid_movement/Dungeon Grid/tiles/big_demon_run_anim_f0.png" type="Texture" id=7]
@@ -43,7 +44,6 @@ anims/walk = SubResource( 2 )
 [node name="AnimatedSprite" type="AnimatedSprite" parent="Pivot"]
 position = Vector2( 0, -17 )
 frames = SubResource( 3 )
-frame = 2
 playing = true
 
 [node name="MoveAudio" type="AudioStreamPlayer" parent="."]
@@ -52,8 +52,16 @@ stream = ExtResource( 3 )
 [node name="BumpAudio" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 3 )
 
+[node name="SpawnAudio" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 4 )
+
 [node name="MoveCooldown" type="Timer" parent="."]
-wait_time = 0.502
+wait_time = 0.331
+
+[node name="InitialMoveCooldown" type="Timer" parent="."]
+wait_time = 1.642
+one_shot = true
 autostart = true
 
 [connection signal="timeout" from="MoveCooldown" to="." method="_on_MoveCooldown_timeout"]
+[connection signal="timeout" from="InitialMoveCooldown" to="." method="_on_InitialMoveCooldown_timeout"]
